@@ -1,16 +1,30 @@
-/* Plano de fundo */
+/* Plano de fundo da imagem */
+.plano-fundo {
+  position: fixed;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+}
+
+.plano-fundo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.3; /* transparência para o conteúdo aparecer bem */
+}
+
+/* Estilos gerais */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-image: url('fundo.jpg'); /* Coloque sua imagem na pasta do projeto */
-  background-size: cover;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-position: center;
+  background-color: transparent; /* fundo transparente para a imagem aparecer */
+  color: #333;
 }
 
-/* Cabeçalho */
 header {
   background-color: rgba(51, 51, 51, 0.9);
   color: white;
@@ -22,50 +36,31 @@ h1 {
   margin: 0;
 }
 
-#titulo {
-  cursor: pointer;
-}
-
-/* Seções */
 section {
-  max-width: 800px;
-  margin: 20px auto;
   padding: 20px;
+  margin: 20px;
   background-color: rgba(255, 255, 255, 0.92);
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
-  color: #333;
+  color: #1f1f1f;
+  font-size: 1.6em;
+  margin-bottom: 10px;
 }
 
-/* Rodapé */
-footer {
-  text-align: center;
-  padding: 10px;
-  background-color: rgba(51, 51, 51, 0.9);
-  color: white;
-}
-
-/* Destaque */
-.highlight {
-  background-color: yellow;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-/* Galeria */
+/* Galeria de fotos com efeito flip */
 .galeria {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   gap: 20px;
   flex-wrap: wrap;
 }
 
 .flip-card {
-  width: 180px;
-  height: 250px;
+  width: 200px;
+  height: 300px;
   perspective: 1000px;
 }
 
@@ -86,9 +81,9 @@ footer {
   position: absolute;
   width: 100%;
   height: 100%;
-  border-radius: 8px;
-  overflow: hidden;
   backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .flip-card-front img {
@@ -106,4 +101,52 @@ footer {
   text-align: center;
   transform: rotateY(180deg);
   padding: 10px;
+}
+
+/* Destaque para palavras */
+.highlight {
+  background-color: yellow;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Estilo do título */
+#titulo {
+  cursor: pointer;
+  font-size: 2em;
+}
+
+/* Rodapé */
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: rgba(51, 51, 51, 0.9);
+  color: white;
+  font-size: 0.9em;
+}
+
+/* Responsivo */
+@media screen and (max-width: 768px) {
+  .galeria {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .flip-card {
+    width: 90%;
+    height: auto;
+  }
+
+  section {
+    margin: 10px;
+    padding: 15px;
+  }
+
+  h2 {
+    font-size: 1.3em;
+  }
+
+  #titulo {
+    font-size: 1.5em;
+  }
 }
